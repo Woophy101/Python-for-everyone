@@ -1,3 +1,8 @@
+fs=open('mbox.txt')
+fstring=fs.read().rstrip().upper()
+print(fstring)
+
+
 #Exercise 1: Write a program to read through a file and print the contents
 #of the file (line by line) all in upper case. Executing the program will
 #look as follows:
@@ -12,7 +17,3 @@
 #SAT, 05 JAN 2008 09:14:16 -0500
 
 #You can download the file from www.py4e.com/code3/mbox-short.txt
-
-fs=open('mbox.txt')
-fstring=fs.read().rstrip().upper()
-print(fstring)
