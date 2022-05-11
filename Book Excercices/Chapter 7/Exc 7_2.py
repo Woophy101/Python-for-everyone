@@ -1,22 +1,3 @@
-#Exercise 1: Write a program to read through a file and print the contents
-#of the file (line by line) all in upper case. Executing the program will
-#look as follows:
-
-#python shout.py
-
-#Enter a file name: mbox-short.txt
-#FROM STEPHEN.MARQUARD@UCT.AC.ZA SAT JAN 5 09:14:16 2008
-#RETURN-PATH: <POSTMASTER@COLLAB.SAKAIPROJECT.ORG>
-#RECEIVED: FROM MURDER (MAIL.UMICH.EDU [141.211.14.90])
-#BY FRANKENSTEIN.MAIL.UMICH.EDU (CYRUS V2.3.8) WITH LMTPA;
-#SAT, 05 JAN 2008 09:14:16 -0500
-
-#You can download the file from www.py4e.com/code3/mbox-short.txt
-
-fs=open('mbox-short.txt')
-fstring=fs.read().rstrip()
-
-
 #Exercise 2: Write a program to prompt for a file name, and then read
 #through the file and look for lines of the form:
 #X-DSPAM-Confidence: 0.8475
@@ -41,6 +22,15 @@ except:
     print('file not found')
     quit()
 
-for lines in fs:
-    if search=="X-DSPAM-Confidence:":
-        print(search)
+tconf=0.0
+n=0
+for line in fs:
+    if "X-DSPAM-Confidence:" in line:
+        npos=line.find(':')
+        line=line.rstrip()
+        confvalue=line[(npos+1):]
+        fconf=float(confvalue)
+        tconf=tconf+fconf
+        n=n+1
+avconf=tconf/n
+print(avconf)
