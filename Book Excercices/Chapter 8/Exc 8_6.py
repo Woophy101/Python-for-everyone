@@ -12,6 +12,7 @@
 #Enter a number: done
 #Maximum: 9.0
 #Minimum: 2.0
+
 exits=list(["Done","done","finish","exit","stop","Stop"])
 numbers=list()
 while True:
