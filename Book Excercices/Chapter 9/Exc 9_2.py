@@ -17,11 +17,12 @@ fh=open(fs)
 days=list(("Mon","Tue","Wed","Thu","Fri","Sat","Sun"))
 count=dict()
 for lines in fh:
-    if "From" not in lines: continue
-    if "From:" in lines: continue
-    words=lines.split()
-    for word in words:
-        if word in days:
-            count[word]=count.get(word,0)+1
+    #if "From" not in lines: continue
+    #if "From:" in lines: continue
+    if lines.startswith('From'):
+        words=lines.split()
+        for word in words:
+            if word in days:
+                count[word]=count.get(word,0)+1
 
 print(count)

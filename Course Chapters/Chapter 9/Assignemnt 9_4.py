@@ -16,6 +16,7 @@ maxnum=None
 for lines in handle:
     if "From" not in lines: continue
     if "From:" in lines: continue #Con estos dos condicionales ya solo selecciono lineas con correos electonicos
+    #if lines.startswith('From'): Usar esta forma tambien cuenta las lineas que comienzan con "From:", dando un resultado de 10 correos
     words=lines.split() #por lo tanto desde acá solo selecciono la segunda palabra de la linea y hago el dictionary
     if len(words)<2: continue #Guardian test. Esta a emedio hacer porque solo checjea que la linea tenga 3 palabras, creo yo que con los otros if statment no es necesario indagar mucho mas
     email=words[1] #Falta agregar el "Guardian", con el archivo mbox.txt tira traceback
