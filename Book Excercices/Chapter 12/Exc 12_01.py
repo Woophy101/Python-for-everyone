@@ -19,10 +19,20 @@ while True:
     except:
         print('Invalid URL')
         continue
-file=input('file?')
-cmd='GET http://'+url+file' HTTP/1.0\r\n\r\n' .encode()'
-print(cmd)
-mysock.send(cmd)
+
+while True:
+    file=input('File?:')
+    cmd='GET http://'+url+'/'+file+' HTTP/1.0\r\n\r\n'
+    UT8=cmd.encode()
+    if url=='done':
+        break
+    try:
+        if (mysock.send(UT8)):
+            print('Valid File!')
+            break
+    except:
+        print('Invalid File')
+        continue
 
 
 while True:
