@@ -16,6 +16,7 @@ ncycles=int(scycles)
 scount=input('Enter position:')
 ncount=int(scount)
 url = input('Enter URL to start:')
+print('Retriving:',url)
 
 cycles=0
 while cycles<ncycles:
