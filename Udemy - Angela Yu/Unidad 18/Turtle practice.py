@@ -48,20 +48,19 @@ for steps in range(5):
     ttt.forward(25)
 """
 
-#Draw consecutive polygons 
 
+#Draw consecutive polygons 
 print("\033[H\033[J", end="") 
 
-
-
-
-edge=25
+edge=100
 counter = 3           #lados del poligono inicial
 max_count=10        #lados del ultimo poligono dibujado
-
-angle=360/counter
+angle=360/counter   #Se usa calculando el angulo exterior de un polígono
 
 while True:
+    
+    if counter == max_count:    #Dejar de dibujar
+        break
     for colors in ("green","red","blue"):
     
             #Si el ciclo no se rompe, dibujar el poligono
@@ -72,15 +71,7 @@ while True:
         if abs(ttt.pos()) < 1:  #checkear si TTT llegó al origen para dibujar un nuevo poligono
             counter +=1
             angle = 360/counter
-            edge += 10
-            print(counter)
-
-        if counter == max_count:    #Dejar de dibujar
-            break
-
-
-    
-
+        
 
 my_screen.exitonclick()
 
